@@ -144,7 +144,7 @@ stages:
 
     - task: ExtractFiles@1
       inputs:
-        archiveFilePatterns: '$(System.DefaultWorkingDirectory)/flask-app/flask-app.zip'
+        archiveFilePatterns: '$(System.DefaultWorkingDirectory)/flask-app/flask-app/flask-app.zip'
         destinationFolder: '$(System.DefaultWorkingDirectory)/flask-app'
 
     - task: Docker@2
