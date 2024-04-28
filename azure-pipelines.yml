@@ -70,7 +70,7 @@ stages:
         artifactName: 'flask-app'
         publishLocation: 'Container'
 
-- stage: Build an image
+- stage: Build_image
   jobs:
   - job: BuildImageJob
     steps:
@@ -79,5 +79,5 @@ stages:
         inputs:
           command: 'build'
           Dockerfile: '$(System.DefaultWorkingDirectory)/Dockerfile'
-          buildContext: $(System.DefaultWorkingDirectory)
+          buildContext: '$(System.DefaultWorkingDirectory)'
           repository: public.ecr.aws/p1w1n2s0/azureassignmentecr
