@@ -88,13 +88,14 @@ stages:
     steps:
       - task: ECRPushImage@1
         inputs:
-         awsCredentials: 'AzureAssignment'
-         regionName: 'ap-south-1'
-         imageSource: 'imagename'
-         sourceImageName: 'public.ecr.aws/p1w1n2s0/azureassignmentecr'
-         sourceImageTag: $(Build.BuildId)
-         pushTag: $(Build.BuildId)
-         repositoryName: 'azureassignmentecr'
+          awsCredentials: 'AzureAssignment'
+          regionName: 'ap-south-1'
+          imageSource: 'imagename'
+          sourceImageName: 'public.ecr.aws/p1w1n2s0/azureassignmentecr'
+          sourceImageTag: '$(Build.BuildId)'
+          repositoryName: 'azureassignmentecr'
+          pushTag: '$(Build.BuildId)'
+          autoCreateRepository: true
 
 # trigger:
 # - main
