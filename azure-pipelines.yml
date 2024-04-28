@@ -56,13 +56,13 @@ stages:
         pip install -r requirements.txt
       displayName: 'Install dependencies'
 
-    - task: ArchiveFiles@2
-      inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-        includeRootFolder: false
-        archiveType: 'zip'
-        archiveFile: '$(build.artifactstagingdirectory)/flask-app.zip'
-      displayName: 'Archive files'
+    # - task: ArchiveFiles@2
+    #   inputs:
+    #     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    #     includeRootFolder: false
+    #     archiveType: 'zip'
+    #     archiveFile: '$(build.artifactstagingdirectory)/flask-app.zip'
+    #   displayName: 'Archive files'
 
     - task: PublishBuildArtifacts@1
       inputs:
