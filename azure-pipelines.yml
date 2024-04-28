@@ -70,29 +70,29 @@ stages:
         artifactName: 'flask-app'
         publishLocation: 'Container'
 
-- stage: Build_image
-  jobs:
-  - job: BuildImageJob
-    steps:
-      - task: Docker@2
-        displayName: Build an image
-        inputs:
-          command: 'build'
-          Dockerfile: '$(System.DefaultWorkingDirectory)/Dockerfile'
-          buildContext: '$(System.DefaultWorkingDirectory)'
-          repository: public.ecr.aws/p1w1n2s0/azureassignmentecr
+# - stage: Build_image
+#   jobs:
+#   - job: BuildImageJob
+#     steps:
+#       - task: Docker@2
+#         displayName: Build an image
+#         inputs:
+#           command: 'build'
+#           Dockerfile: '$(System.DefaultWorkingDirectory)/Dockerfile'
+#           buildContext: '$(System.DefaultWorkingDirectory)'
+#           repository: public.ecr.aws/p1w1n2s0/azureassignmentecr
 
-- stage: Push_Image
-  jobs:
-  - job: PushImagetoecr
-    steps:
-      - task: ECRPushImage@1
-        inputs:
-          awsCredentials: 'AzureAssignment'
-          regionName: 'ap-south-1'
-          imageSource: 'imagename'
-          sourceImageName: 'public.ecr.aws/p1w1n2s0/azureassignmentecr'
-          sourceImageTag: '$(Build.BuildId)'
-          repositoryName: 'azureassignmentecr'
-          pushTag: '$(Build.BuildId)'
-          autoCreateRepository: true
+# - stage: Push_Image
+#   jobs:
+#   - job: PushImagetoecr
+#     steps:
+#       - task: ECRPushImage@1
+#         inputs:
+#           awsCredentials: 'AzureAssignment'
+#           regionName: 'ap-south-1'
+#           imageSource: 'imagename'
+#           sourceImageName: 'public.ecr.aws/p1w1n2s0/azureassignmentecr'
+#           sourceImageTag: '$(Build.BuildId)'
+#           repositoryName: 'azureassignmentecr'
+#           pushTag: '$(Build.BuildId)'
+#           autoCreateRepository: true
