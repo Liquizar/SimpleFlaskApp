@@ -55,6 +55,10 @@ stages:
         python3 -m pip install --upgrade pip
         pip install -r requirements.txt
       displayName: 'Install dependencies'
+    - task: CopyFiles@2
+      inputs:
+       Contents: '**'
+       TargetFolder: '$(build.artifactstagingdirectory)'
 
     # - task: ArchiveFiles@2
     #   inputs:
