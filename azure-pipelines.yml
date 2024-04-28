@@ -81,3 +81,18 @@ stages:
           Dockerfile: '$(System.DefaultWorkingDirectory)/Dockerfile'
           buildContext: '$(System.DefaultWorkingDirectory)'
           repository: public.ecr.aws/p1w1n2s0/azureassignmentecr
+
+- stage: Push_Image
+  jobs:
+  - job: PushImagetoecr
+    steps:
+      - task: ECRPushImage@1
+        inputs:
+         awsCredentials: 'AzureAssignment'
+         regionName: 'ap-south-1'
+         imageSource: 'imagename'
+         sourceImageName: 'flask-app'
+         sourceImageTag: $(Build.BuildId)
+         pushTag: $(Build.BuildId)
+         repositoryName: 'azureassignmentecr'
+
